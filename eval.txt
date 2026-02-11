@@ -1,0 +1,222 @@
+Running 23 test cases...
+
+----------------------------------------------------------------------
+
+[1/23] What is the notice period for terminating the NDA?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✓ 3/3 expected phrases found
+  Latency:         13.85s
+----------------------------------------------------------------------
+
+[2/23] What is the uptime commitment in the SLA?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         11.3s
+----------------------------------------------------------------------
+
+[3/23] Which law governs the Vendor Services Agreement?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✓ 2/2 expected phrases found
+  Latency:         10.36s
+----------------------------------------------------------------------
+
+[4/23] Do confidentiality obligations survive termination of the NDA?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✓ 4/4 expected phrases found
+  Latency:         13.53s
+----------------------------------------------------------------------
+
+[5/23] What remedies are available if the SLA uptime is not met?
+  Classification:  ✗ risk (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 3/3 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         20.89s
+----------------------------------------------------------------------
+
+[6/23] Which agreement governs data breach notification timelines?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         14.99s
+----------------------------------------------------------------------
+
+[7/23] Can Vendor XYZ share Acme's confidential data with subcontractors?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✗ 0/1 found
+  Retrieval secs:  ✗ 0/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✗ 0/1 expected phrases found
+  Latency:         17.25s
+----------------------------------------------------------------------
+
+[8/23] What happens if Vendor delays breach notification beyond 72 hours?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         16.16s
+----------------------------------------------------------------------
+
+[9/23] Is liability capped for breach of confidentiality?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✗ 1/2 expected phrases found
+  Latency:         19.11s
+----------------------------------------------------------------------
+
+[10/23] Is Vendor XYZ's liability capped for data breaches?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         16.46s
+----------------------------------------------------------------------
+
+[11/23] Are there conflicting governing laws across agreements?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 3/3 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✗ 2/3 expected phrases found
+  Latency:         18.72s
+----------------------------------------------------------------------
+
+[12/23] Are there any legal risks related to liability exposure?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 3/3 citations verified
+  Answer phrases:  ✗ 1/3 expected phrases found
+  Latency:         19.33s
+----------------------------------------------------------------------
+
+[13/23] Identify any clauses that could pose financial risk to Acme Corp.
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 2/2 found
+  Retrieval secs:  ✗ 1/2 found
+  Faithfulness:    ✓ 3/3 citations verified
+  Answer phrases:  — no expected phrases (broad query)
+  Latency:         19.29s
+----------------------------------------------------------------------
+
+[14/23] Is there any unlimited liability in these agreements?
+  Classification:  ✓ risk (expected: risk)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✗ 1/3 expected phrases found
+  Latency:         15.17s
+----------------------------------------------------------------------
+
+[15/23] Summarize all risks for Acme Corp in one paragraph.
+  Classification:  ✓ risk (expected: risk)
+  Retrieval:       — broad query (any docs acceptable)
+  Faithfulness:    — no citations found in answer
+  Answer phrases:  — no expected phrases (broad query)
+  Latency:         18.23s
+----------------------------------------------------------------------
+
+[16/23] Summarize the SLA
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 2/2 found
+  Faithfulness:    ✓ 3/3 citations verified
+  Answer phrases:  ✓ 2/2 expected phrases found
+  Latency:         14.05s
+----------------------------------------------------------------------
+
+[17/23] What are the key features of the NDA?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✗ 1/2 found
+  Faithfulness:    — no citations found in answer
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         18.89s
+----------------------------------------------------------------------
+
+[18/23] What does the Data Processing Agreement cover?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 1/1 found
+  Retrieval secs:  ✓ 2/2 found
+  Faithfulness:    ✓ 1/1 citations verified
+  Answer phrases:  ✓ 1/1 expected phrases found
+  Latency:         13.98s
+----------------------------------------------------------------------
+
+[19/23] Compare the termination clauses across all agreements.
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 2/2 found
+  Retrieval secs:  ✓ 2/2 found
+  Faithfulness:    — no citations found in answer
+  Answer phrases:  ✓ 2/2 expected phrases found
+  Latency:         21.76s
+----------------------------------------------------------------------
+
+[20/23] Which agreements have governing law clauses and what do they say?
+  Classification:  ✓ analysis (expected: analysis)
+  Retrieval docs:  ✓ 3/3 found
+  Retrieval secs:  ✓ 1/1 found
+  Faithfulness:    — no citations found in answer
+  Answer phrases:  ✓ 2/2 expected phrases found
+  Latency:         16.57s
+----------------------------------------------------------------------
+
+[21/23] How do liability terms differ between the NDA and Vendor Services Agreement?
+  Classification:  ✗ risk (expected: analysis)
+  Retrieval docs:  ✗ 1/2 found
+  Retrieval secs:  ✗ 1/2 found
+  Faithfulness:    ✓ 2/2 citations verified
+  Answer phrases:  ✗ 0/2 expected phrases found
+  Latency:         23.03s
+----------------------------------------------------------------------
+
+[22/23] Can you draft a better NDA for me?
+  Classification:  ✓ out_of_scope (expected: out_of_scope)
+  Retrieval:       — skipped (out of scope)
+  Faithfulness:    — skipped (hardcoded response)
+  Answer phrases:  ✓ 2/2 expected phrases found
+  Latency:         1.93s
+----------------------------------------------------------------------
+
+[23/23] What legal strategy should Acme take against Vendor XYZ?
+  Classification:  ✓ out_of_scope (expected: out_of_scope)
+  Retrieval:       — skipped (out of scope)
+  Faithfulness:    — skipped (hardcoded response)
+  Answer phrases:  ✓ 3/3 expected phrases found
+  Latency:         0.39s
+----------------------------------------------------------------------
+
+======================================================================
+  AGGREGATE METRICS
+======================================================================
+
+  Classification Accuracy:  21/23 (91.3%)
+  Retrieval Doc Recall:     25/27 (92.6%)
+  Retrieval Section Recall: 22/26 (84.6%)
+  Citation Accuracy:        32/32 (100.0%)
+  Answer Correctness:       32/41 (78.0%)
+
+  Average Latency:          15.4s per query
+  Total Test Cases:         23
+
+======================================================================

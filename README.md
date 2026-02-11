@@ -126,37 +126,42 @@ On first run, the system automatically ingests the 4 legal documents from `data/
 - **Alternatives:** Single-stage semantic search, BM25 + semantic hybrid, ColBERT
 - **Why:** Bi-encoder is fast for candidate generation; cross-encoder captures token-level interactions for precise relevance. Trade-off: ~200ms extra latency, ~2GB PyTorch dependency.
 
-**5. Vector Store**
+**5. Cross-Encoder Model**
+- **Chose:** `cross-encoder/ms-marco-MiniLM-L-6-v2` (~80 MB, runs on CPU)
+- **Alternatives:** `ms-marco-TinyBERT-L-6`, `BGE-reranker-large`, Cohere Rerank API, `cross-encoder/ms-marco-MiniLM-L-12-v2`
+- **Why:** Best speed-accuracy trade-off for a local re-ranker. 6-layer model keeps latency under 200ms for 10 candidates. Trained on MS MARCO passage ranking, which transfers well to legal clause retrieval. Trade-off: less accurate than the 12-layer variant or API-based re-rankers, but avoids cloud dependency.
+
+**6. Vector Store**
 - **Chose:** ChromaDB (file-persisted, in-process)
 - **Alternatives:** Pinecone, Weaviate, Qdrant, FAISS
 - **Why:** Zero infrastructure -- no server process, no cloud account. Persists to disk across runs. Trade-off: not suitable for concurrent users or million-scale corpora.
 
-**6. Multi-Agent vs. Monolithic**
+**7. Multi-Agent vs. Monolithic**
 - **Chose:** 3 specialized agents (Orchestrator, Analysis, Risk)
 - **Alternatives:** Single LLM with one mega-prompt, 2-agent (no orchestrator), tool-calling agent
 - **Why:** Separation of concerns -- each agent has a focused prompt and temperature. Easier to test, debug, and extend individually. Trade-off: ~4 LLM calls per query instead of 1.
 
-**7. LLM Instance Strategy**
+**8. LLM Instance Strategy**
 - **Chose:** Separate `ChatOllama` instance per agent, injected via constructor (dependency injection)
 - **Alternatives:** Single shared instance across all agents, hard-coded LLM inside each agent
 - **Why:** Each agent owns its configuration (temperature, model). The Orchestrator reuses one LLM instance across its 3 internal LCEL chains (rewriter, classifier, follow-up generator) since they share the same temperature -- avoiding redundant connections while keeping agents independently configurable. Trade-off: slightly more wiring code, but makes agents testable and swappable.
 
-**8. Multi-Turn Handling**
+**9. Multi-Turn Handling**
 - **Chose:** Hybrid: code-level gates + LLM query rewriter
 - **Alternatives:** Pure LLM rewriting for everything, stateless (no history)
 - **Why:** Code gates handle trivial cases (greetings, numeric selection) without LLM cost. LLM rewriter handles complex referential queries. Trade-off: regex patterns need manual upkeep.
 
-**9. Conversation History Retention**
+**10. Conversation History Retention**
 - **Chose:** Sliding window of last 10 turns, stored in-memory, with CONTEXT prioritized over HISTORY in prompts
 - **Alternatives:** Full history (unbounded), summarization-based compression, external memory store (Redis/DB)
 - **Why:** Sliding window keeps prompt size bounded and predictable. Prioritizing retrieved context over history reduces hallucination from stale turns. Trade-off: earlier turns are silently dropped, which can lose important context in very long sessions.
 
-**10. Follow-up Suggestion Strategy**
+**11. Follow-up Suggestion Strategy**
 - **Chose:** LLM-generated suggestions (deepen, broaden, risk) with previous-suggestion deduplication and numeric shortcut selection
 - **Alternatives:** Static predefined follow-ups, no follow-ups (let user type freely), retrieval-based suggestions
 - **Why:** Dynamic suggestions guide the user toward high-value next queries while covering different exploration angles. Passing previous suggestions to the generator avoids repetition. Numeric selection ("1", "2", "3") reduces typing friction. Trade-off: adds one extra LLM call per turn.
 
-**11. Temperature Strategy**
+**12. Temperature Strategy**
 - **Chose:** 0.0 for Orchestrator/Analysis, 0.2 for Risk
 - **Alternatives:** Uniform temperature, higher creativity for all
 - **Why:** Factual Q&A needs deterministic output. Risk identification benefits from slight interpretive flexibility to surface non-obvious risks. Trade-off: risk agent occasionally over-interprets.
